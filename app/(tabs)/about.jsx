@@ -1,10 +1,13 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import { Link } from 'expo-router'
 
 const about = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>About Screen</Text>
+      <Link href="/" style={styles.button} >
+        Back to home
+      </Link>
     </View>
   )
 }
@@ -19,6 +22,11 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff'
   },
+  button: {
+    fontSize: 20,
+    textDecorationLine: 'underline',
+    color: "#fff"
+  }
 })
 
 
