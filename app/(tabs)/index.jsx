@@ -7,6 +7,7 @@ import CircleButton from '@/components/CircleButton'
 import IconButton from '@/components/IconButton'
 import EmojiPicker from '@/components/EmojiPicker'
 import EmojiList from '@/components/EmojiList'
+import EmojiSticker from '@/components/EmojiSticker'
 
 
 const PlaceholderImage = require('@/assets/images/background-image.png')
@@ -14,7 +15,7 @@ const PlaceholderImage = require('@/assets/images/background-image.png')
 const index = () => {
   const [selectedImage, setSelectedImage] = useState(undefined)
   const [showAppOptions, setShowAppOptions] = useState(false)
-  const [isModleVisible, setIsModleVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
   const [pickedEmoji, setPickedEmoji] = useState(undefined)
 
   const pickImageAsync = async () => {
@@ -37,11 +38,11 @@ const index = () => {
   }
 
   const onAddSticker = () => {
-    setIsModleVisible(true)
+    setIsModalVisible(true)
   }
 
-  const onModleClose = () => {
-    setIsModleVisible(false)
+  const onModalClose = () => {
+    setIsModalVisible(false)
   }
 
 
@@ -54,6 +55,7 @@ const index = () => {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
+        {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
       </View>
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
@@ -69,8 +71,8 @@ const index = () => {
           <Button lable="Use this photo" onPress={() => setShowAppOptions(true)} />
         </View>
       )}
-      <EmojiPicker isVisible={isModleVisible} onClose={onModleClose}>
-        <EmojiList onSelect={setPickedEmoji} onCloseModal={onModleClose}/>
+      <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
+        <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose}/>
       </EmojiPicker>
     </View>
   )

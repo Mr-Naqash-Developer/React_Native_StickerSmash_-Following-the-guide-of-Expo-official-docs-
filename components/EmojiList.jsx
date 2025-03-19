@@ -16,7 +16,7 @@ const EmojiList = ({ onSelect, onCloseModal }) => {
   return (
     <FlatList
       horizontal
-      showsHorizontalScrollIndicator = {Platform.OS == 'web'}
+      showsHorizontalScrollIndicator={Platform.OS === 'web'}
       data={emoji}
       contentContainerStyle = {styles.listContainer}
       renderItem={({ item, index }) => (
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'yellow'
   },
   image: {
     width: 100,

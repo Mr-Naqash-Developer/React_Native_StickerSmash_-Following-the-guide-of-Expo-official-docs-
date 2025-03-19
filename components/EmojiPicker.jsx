@@ -1,24 +1,24 @@
-import { View, Text, Modal, Pressable, StyleSheet } from 'react-native'
-import React from 'react'
-import { MaterialIcons } from '@expo/vector-icons'
+import React from 'react';
+import { Modal, View, Text, Pressable, StyleSheet } from 'react-native';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-const EmojiPicker = ({ isVisible, childern, onClose }) => {
+const EmojiPicker = ({ isVisible, children, onClose }) => {
   return (
     <View>
-      <Modal animationType='slide' transparent={true} visible={isVisible}>
+      <Modal animationType="slide" transparent={true} visible={isVisible}>
         <View style={styles.modalContent}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>Choose a sticker</Text>
             <Pressable onPress={onClose}>
-              <MaterialIcons name='close' color='#fff' size={22} />
+              <MaterialIcons name="close" color="#fff" size={22} />
             </Pressable>
           </View>
-          {childern}
+          {children}
         </View>
       </Modal>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   modalContent: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   title: {
     color: '#fff',
     fontSize: 16,
-  }
-})
+  },
+});
 
-export default EmojiPicker
+export default EmojiPicker;
